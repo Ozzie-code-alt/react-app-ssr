@@ -6,7 +6,7 @@ import express from 'express';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from "react-router-dom/server";
 import { matchPath } from "react-router-dom";
-import IndexSSR from '../../src/IndexSSR';
+import ServerSide from '../serverside';
 import {Helmet} from "react-helmet";
 
 const PORT = process.env.PORT || process.env.NODE_ENV==="production"?80:3006;
@@ -19,7 +19,7 @@ app.get('*', (req, res, next) => {
     if (activeRoute) {
         const app = ReactDOMServer.renderToString(
             <StaticRouter location={req.url}>
-                <IndexSSR />
+                <ServerSide />
             </StaticRouter>
         );
         const helmet = Helmet.renderStatic();

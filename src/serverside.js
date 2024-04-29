@@ -2,8 +2,8 @@ import React from 'react';
 import './index.css';
 import App from './App';
 
-function IndexSSR() {
+function ServerSide() {
     return (<App />);
 }
 
-export default IndexSSR;
+export default ServerSide;
